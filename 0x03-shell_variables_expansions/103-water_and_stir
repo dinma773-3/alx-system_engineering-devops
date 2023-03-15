@@ -1,2 +1,2 @@
 #!/bin/bash
-tr 'waterstir.' '0123401234.' <<< "${WATER}${STIR}" | (read a b; for i in {0..7}; do [[ $a -ge $((4 ** (7 - i))) ]] && { echo -n b; a=$((a - $((4 ** (7 - i))))); } || echo -n e; done; for i in {0..7}; do [[ $b -ge $((4 ** (7 - i))) ]] && { echo -n o; b=$((b - $((4 ** (7 - i))))); } || echo -n s; done; echo)
+echo $(printf %o $(($((5#$(echo $WATER | tr 'water' '01234'))) + $((5#$(echo $STIR | tr 'stir.' '01234'))))) | tr '01234567' 'bestchol'
